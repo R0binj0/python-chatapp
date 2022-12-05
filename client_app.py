@@ -105,7 +105,7 @@ class ChatPage(GridLayout):
         self.history = ScrollableLabel(height=Window.size[1]*0.9, size_hint_y=None)
         self.add_widget(self.history)
 
-        self.new_message = TextInput(width=Window.size[0]*0.8, size_hint_x=None, multiline=False, foreground_color="f5f0f0", background_color="20dd20")
+        self.new_message = TextInput(width=Window.size[0]*0.8, size_hint_x=None, multiline=False, background_color="20dd20")
         self.send = Button(text="Send", background_color="20dd20")
         self.send.bind(on_press=self.send_message)
 
