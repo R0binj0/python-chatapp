@@ -33,15 +33,15 @@ class ConnectPage(GridLayout):
             prev_username = ''
         
         self.add_widget(Label(text='IP:', color='20dd20')) 
-        self.ip = TextInput(text=prev_ip, background_color="357a38", halign='center', multiline=False) 
+        self.ip = TextInput(text=prev_ip, foreground_color="f5f0f0", background_color="357a38", halign='center', multiline=False) 
         self.add_widget(self.ip) 
 
         self.add_widget(Label(text='Port:', color='20dd20'))
-        self.port = TextInput(text=prev_port, background_color="357a38", halign='center', multiline=False)
+        self.port = TextInput(text=prev_port, foreground_color="f5f0f0", background_color="357a38", halign='center', multiline=False)
         self.add_widget(self.port)
 
         self.add_widget(Label(text='Username:', color='20dd20'))
-        self.username = TextInput(text=prev_username, background_color="357a38", halign='center', multiline=False)
+        self.username = TextInput(text=prev_username, foreground_color="f5f0f0", background_color="357a38", halign='center', multiline=False)
         self.add_widget(self.username)
 
         self.join = Button(text="Join", background_color="20dd20")
@@ -105,7 +105,7 @@ class ChatPage(GridLayout):
         self.history = ScrollableLabel(height=Window.size[1]*0.9, size_hint_y=None)
         self.add_widget(self.history)
 
-        self.new_message = TextInput(width=Window.size[0]*0.8, size_hint_x=None, multiline=False, background_color="20dd20")
+        self.new_message = TextInput(width=Window.size[0]*0.8, size_hint_x=None, multiline=False, foreground_color="f5f0f0", background_color="20dd20")
         self.send = Button(text="Send", background_color="20dd20")
         self.send.bind(on_press=self.send_message)
 
@@ -146,7 +146,7 @@ class ChatPage(GridLayout):
         self.new_message.text = ''
 
         if message:
-            self.history.update_chat_history(f'[color=173518]{chat_app.connect_page.username.text}[/color] > {message}')
+            self.history.update_chat_history(f'[color=20dd20]{chat_app.connect_page.username.text}[/color] > {message}')
             socket_client.send(message)
 
         Clock.schedule_once(self.focus_text_input, 0.1)
@@ -155,7 +155,7 @@ class ChatPage(GridLayout):
         self.new_message.focus = True
 
     def incoming_message(self, username, message):
-        self.history.update_chat_history(f'[color=20dd20]{username} > [/color]{message}')
+        self.history.update_chat_history(f'[color=f5f0f0]{username} > [/color]{message}')
 
 class ScrollableLabel(ScrollView):
 
